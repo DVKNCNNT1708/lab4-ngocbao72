@@ -2,6 +2,9 @@ openapi: 3.1.0
 info:
   title: FIT4110 Lab 04 - IoT Ingestion API
   version: 0.4.0
+  contact:
+    name: Ngoc Bao
+    email: ngocbao7205@gmail.com
   description: |
     Contract dùng cho Lab 04 Docker packaging, được đồng bộ lại với logic Lab 03.
     Payload chính dùng các trường device_id, metric, value, unit và timestamp.
@@ -191,6 +194,7 @@ paths:
       tags: [readings]
       operationId: getReadingById
       summary: Lấy chi tiết một bản ghi cảm biến
+      description: Trả về thông tin chi tiết của một bản ghi cảm biến dựa trên reading_id.
       parameters:
         - name: reading_id
           in: path
