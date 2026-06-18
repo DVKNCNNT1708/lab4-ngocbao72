@@ -38,7 +38,7 @@ jobs:
         run: npx wait-on http://localhost:8000/health --timeout 30000
 
       - name: Run Newman against Docker container
-        run: npm run test:local
+        run: npm run test:team-iot:local
 
       - name: Show container logs on failure
         if: failure()
