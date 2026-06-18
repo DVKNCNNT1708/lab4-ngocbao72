@@ -42,7 +42,12 @@ jobs:
 
       - name: Show container logs on failure
         if: failure()
-        run: docker logs fit4110-iot-lab04 || true
+        run: |
+          docker logs fit4110-iot-lab04 || true
+          echo "### Container Logs on Failure" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          docker logs fit4110-iot-lab04 >> $GITHUB_STEP_SUMMARY 2>&1 || true
+          echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Stop container
         if: always()
